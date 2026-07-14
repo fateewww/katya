@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+async function sendMail() {
+    const text = document.getElementById("gift").value.trim();
+
+    if (!text) {
+        document.getElementById("status").innerHTML = "🌸 Напиши ответ!";
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            `https://api.telegram.org/bot${TOKEN=8401589515:AAG2jj5t1rJYLMDXzXVhkbGzYiEl0x4KIjo}/sendMessage`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID=669925146,
+                    text: `🎀 Новый ответ!\n\n💖 ${text}`
+                })
+            }
+        );
+
+        if (response.ok) {
+            document.getElementById("status").innerHTML = "💖 Спасибо!";
+            document.getElementById("gift").value = "";
+        } else {
+            document.getElementById("status").innerHTML = "❌ Ошибка отправки";
+        }ььь
+
+    } catch (e) {
+        document.getElementById("status").innerHTML = "❌ Ошибка соединения";
+    }
+}
+<!DOCTYPE html>
+<html>
