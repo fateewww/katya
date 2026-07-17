@@ -1,37 +1,92 @@
-
 <!DOCTYPE html>
-<html lang="ru"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🎁 Что тебе подарить?</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden;font-family:Poppins,sans-serif;background:linear-gradient(135deg,#ffeef7,#ffdbe9,#f7ecff)}
-#bg span{position:absolute;font-size:22px;opacity:.65;animation:f linear infinite}
-@keyframes f{from{transform:translateY(110vh)}to{transform:translateY(-15vh)}}
-.card{width:min(92vw,460px);padding:34px;border-radius:28px;background:rgba(255,255,255,.45);backdrop-filter:blur(14px);box-shadow:0 15px 40px rgba(255,160,190,.3);text-align:center}
-h1{font:400 40px Pacifico;color:#e46ca5;margin:0}.q{font-size:28px;font-weight:700;color:#8f5a77;margin:18px 0 8px}
-p{color:#8f7080}textarea{width:100%;height:150px;border:none;border-radius:18px;padding:15px;background:#fff9;outline:none;font-size:16px}
-button{margin-top:16px;width:100%;padding:15px;border:none;border-radius:999px;background:linear-gradient(90deg,#ff9bc6,#f7a8ff);color:#fff;font-weight:700;font-size:17px;cursor:pointer}
-#status{margin-top:14px;color:#c2558f;font-weight:600;min-height:24px}
-</style></head><body>
-<div id="bg"></div>
-<div class="card">
-<h1>🎀 Привет 🎀</h1>
-<div class="q">🎁 Что тебе подарить?</div>
-<p>Напиши всё, что придёт в голову. Любая идея приветствуется 😊</p>
-<textarea id="gift" placeholder="Например: книгу, сертификат, цветы, что-то для хобби..."></textarea>
-<button onclick="sendMail()">🌸 Отправить ответ</button>
-<div id="status"></div>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для тебя 🌸</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div id="petals"></div>
+
+<div class="container">
+
+    <!-- Конверт -->
+
+    <div class="envelope-box" id="envelopeBox">
+
+        <div class="hint">
+            🌸 Для тебя небольшое письмо 🌸
+        </div>
+
+        <div class="envelope" id="envelope">
+
+            <div class="cover"></div>
+
+            <div class="letter" id="letter">
+
+                <div class="card">
+
+                    <h1>🎁 Что тебе подарить?</h1>
+
+                    <p class="subtitle">
+                        Хочу выбрать подарок, который действительно тебя порадует 😊
+                    </p>
+
+                    <textarea
+                        id="gift"
+                        placeholder="Напиши всё, что придёт в голову ✨"></textarea>
+
+                    <button id="sendBtn">
+                        🌸 Отправить ответ
+                    </button>
+
+                    <div id="status"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="openButton" id="openButton">
+            ✉️ Открыть письмо
+        </button>
+
+    </div>
+
 </div>
-<script>
-const items=['🌸','✨','🎀','🫧','🌼','☁️'];
-for(let i=0;i<45;i++){let s=document.createElement('span');s.textContent=items[Math.floor(Math.random()*items.length)];s.style.left=Math.random()*100+'vw';s.style.animationDuration=(8+Math.random()*10)+'s';s.style.animationDelay=(-Math.random()*20)+'s';document.getElementById('bg').appendChild(s);}
-const TOKEN="ВСТАВЬ_ТОКЕН";const CHAT_ID="ВСТАВЬ_CHAT_ID";
-async function sendMail(){const t=gift.value.trim();if(!t){status.textContent="🌸 Напиши ответ.";return;}
-status.textContent="Отправляем...";
-try{const r=await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:CHAT_ID,text:"🎁 Ответ на вопрос «Что тебе подарить?»\n\n"+t})});
-if(r.ok){status.textContent="🌸 Спасибо! Теперь у меня есть идея 😊";gift.value="";}else status.textContent="Не удалось отправить 😔";}
-catch(e){status.textContent="Ошибка соединения";}
-}
-</script></body></html>
+
+<div id="thanks" class="thanks">
+
+    <div class="thanksCard">
+
+        <div class="emoji">
+            🎁
+        </div>
+
+        <h2>Спасибо! 🌸</h2>
+
+        <p>
+            Теперь у меня есть идея,
+            в каком направлении искать подарок 😊
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
