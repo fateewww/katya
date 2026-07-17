@@ -23,35 +23,40 @@
 
     <!-- Конверт -->
 
-    <div class="envelope-box" id="envelopeBox">
+ <div class="envelope" id="envelope">
 
-        <div class="hint">
-            🌸 Для тебя небольшое письмо 🌸
+    <div class="back"></div>
+
+    <div class="letter" id="letter">
+
+        <div class="card">
+
+            <h1>🎁 Что тебе подарить?</h1>
+
+            <p class="subtitle">
+                Хочу выбрать подарок,
+                который действительно тебя порадует 😊
+            </p>
+
+            <textarea
+                id="gift"
+                placeholder="Напиши всё, что придёт в голову ✨"></textarea>
+
+            <button id="sendBtn">
+                🌸 Отправить ответ
+            </button>
+
+            <div id="status"></div>
+
         </div>
 
-        <div class="envelope" id="envelope">
+    </div>
 
-            <div class="cover"></div>
+    <div class="front"></div>
 
-            <div class="letter" id="letter">
+    <div class="flap"></div>
 
-                <div class="card">
-
-                    <h1>🎁 Что тебе подарить?</h1>
-
-                    <p class="subtitle">
-                        Хочу выбрать подарок, который действительно тебя порадует 😊
-                    </p>
-
-                    <textarea
-                        id="gift"
-                        placeholder="Напиши всё, что придёт в голову ✨"></textarea>
-
-                    <button id="sendBtn">
-                        🌸 Отправить ответ
-                    </button>
-
-                    <div id="status"></div>
+</div>
 
                 </div>
 
