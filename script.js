@@ -63,6 +63,10 @@ openButton.addEventListener("click",()=>{
 
     openButton.style.display="none";
 
+    const letter = document.getElementById("letter");
+
+    letter.style.transitionDelay="0.45s";
+
 });
 
 // ===========================
