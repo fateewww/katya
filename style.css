@@ -314,27 +314,14 @@ font-family:inherit;
 }
 
 .openButton{
-
-margin-top:30px;
-
-padding:16px 38px;
-
-border-radius:50px;
-
-font-size:18px;
-
-background:
-
-linear-gradient(
-90deg,
-#ff97c4,
-#ffb4d8
-);
-
-color:white;
-
-transition:.3s;
-
+    display:block;
+    margin:30px auto 0;
+    padding:16px 38px;
+    border-radius:50px;
+    font-size:18px;
+    background:linear-gradient(90deg,#ff97c4,#ffb4d8);
+    color:white;
+    transition:.3s;
 }
 
 .openButton:hover{
